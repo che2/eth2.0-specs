@@ -1085,7 +1085,8 @@ A valid block with slot `INITIAL_SLOT_NUMBER` (a "genesis block") has the follow
 `STARTUP_STATE_ROOT` (in the above "genesis block") is generated from the `get_initial_beacon_state` function below. When enough full deposits have been made to the deposit contract and the `ChainStart` log has been emitted, `get_initial_beacon_state` will execute to compute the `ssz_tree_hash` of `BeaconState`.
 
 ```python
-def get_initial_beacon_state(initial_validator_deposits: List[Deposit],
+def get_initial_beacon_state(initial_validator_registry: List[ValidatorRecord],
+                             initial_validator_deposits: List[Deposit],
                              genesis_time: int,
                              processed_pow_receipt_root: Hash32) -> BeaconState:
     state = BeaconState(
@@ -1173,8 +1174,7 @@ def process_deposit(state: BeaconState,
                     deposit: int,
                     proof_of_possession: bytes,
                     withdrawal_credentials: Hash32,
-                    randao_commitment: Hash32,
-                    status: int) -> int:
+                    randao_commitment: Hash32) -> int:
     """
     Process a deposit from Ethereum 1.0.
     Note that this function mutates ``state``.
