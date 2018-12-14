@@ -1305,7 +1305,7 @@ def exit_validator(state: BeaconState,
         whistleblower.balance += whistleblower_reward
         validator.balance -= whistleblower_reward
 
-    if prev_status == EXITED_WITHOUT_PENALTY
+    if prev_status == EXITED_WITHOUT_PENALTY:
         return
 
     # The following updates only occur if not previous exited
