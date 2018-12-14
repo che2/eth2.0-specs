@@ -1072,7 +1072,7 @@ A valid block with slot `INITIAL_SLOT_NUMBER` (a "genesis block") has the follow
     randao_reveal=ZERO_HASH,
     candidate_pow_receipt_root=ZERO_HASH,
     proposer_signature=[0, 0],
-    'body': BeaconBlockBody(
+    body=BeaconBlockBody(
         proposer_slashings=[],
         casper_slashings=[],
         attestations=[],
